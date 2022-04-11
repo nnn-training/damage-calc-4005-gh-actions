@@ -1,0 +1,29 @@
+name: Damage Calculation Test
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js v14.15.4
+      uses: actions/setup-node@v1
+      with:
+        node-version: '14.15.4'
+    
+    - run: yarn install
+    - name: Install JUnit coverage reporter
+      run: yarn add --dev jest junit
+    - name: Run tests with JUnit as reporter
+      run: npx jest --ci --runInBand --reporters=default --reporters=jest-junit
+      env:
+        JEST_JUNIT_OUTPUT_DIR: "./junit/test-results.xml"
+    - uses: actions/upload-artifact@v2
+      with:
+        path: ./junit/test-results.xml
+      if: always()
