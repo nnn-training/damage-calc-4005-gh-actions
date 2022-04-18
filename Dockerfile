@@ -1,5 +1,5 @@
 
-FROM node:14.15.4
+FROM node:16.14.2-slim
 
 RUN apt-get update
 RUN apt-get install -y locales
