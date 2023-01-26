@@ -2,7 +2,6 @@
 const dc = require('../');
 
 describe('#effectiveDamage()', () => {
-
   test('正常なダメージ計算ができる', () => {
     expect(dc.effectiveDamage(100, 50, 30)).toBe(83);
   });
