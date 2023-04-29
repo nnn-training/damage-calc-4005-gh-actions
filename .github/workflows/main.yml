@@ -17,4 +17,13 @@ jobs:
         node-version: '16.14.2'
     
     - run: yarn install
-    - run: yarn test
+    - name: Install JUnit coverage reporter
+      run: yarn add --dev jest-junit
+    - name: Run tests with JUnit as reporter
+      run: npx jest --ci --runInBand --reporters=default --reporters=jest-junit
+      env:
+        JEST_JUNIT_OUTPUT_DIR: "./junit/test-results.xml"
+    - uses: actions/upload-artifact@v2
+      with:
+        path: ./junit/test-results.xml
+      if: always()
