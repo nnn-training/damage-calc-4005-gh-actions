@@ -43,3 +43,5 @@ console.log(dc.effectiveDamage(100, 50, 30));
 実効防御力は、 50 - 30 で 20 となります。  
 ダメージ減少率は、 20 / (100 + 20) を計算し、20 / 120 を約分すると 1 / 6 となります。  
 ダメージは、 100 * (1 - (1 / 6)) = 100 * 5 / 6 を計算した 83.33333... となり、四捨五入して 83 となります。
+
+[![Damage Calculation Test](https://github.com/hirototakao/damage-calc-4005-gh-actions/actions/workflows/main.yml/badge.svg)](https://github.com/hirototakao/damage-calc-4005-gh-actions/actions/workflows/main.yml)
