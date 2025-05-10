@@ -3,4 +3,4 @@ services:
     build: .
     tty: true
     volumes:
-      - .:/damage-calc-4005-gh-actions
+      - .:/app
